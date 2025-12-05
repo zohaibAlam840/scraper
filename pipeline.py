@@ -446,6 +446,31 @@ import streamlit as st
 # Scraping config
 # --------------------
 
+
+# 🔒 Hide GitHub link, footer, "made with Streamlit", and the menu
+hide_streamlit_style = """
+<style>
+/* Hide the GitHub icon/link in the top-right */
+[data-testid="stToolbar"] { 
+    display: none !important;
+}
+
+/* Hide Streamlit footer */
+footer {visibility: hidden;}
+footer:after {content:""; display:block;}
+
+/* Hide Streamlit hamburger menu */
+#MainMenu {visibility: hidden;}
+
+/* Hide any "View source", "Edit", or action icons */
+[data-testid="stActionButtonIcon"] {
+    display: none !important;
+}
+</style>
+"""
+
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
 HEADERS = {
     "User-Agent": (
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
